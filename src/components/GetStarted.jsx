@@ -1,9 +1,14 @@
 import { arrowUp } from '../assets'
 import styles from '../styles'
 import React from 'react'
+import { motion } from 'framer-motion'
+import { fadeIn } from '../constants/motion'
 
 const GetStarted = () => (
-  <div className={`${styles.flexCenter} w-[140px] h-[140px] rounded-full bg-blue-gradient p-[2px] cursor-pointer`}>
+  <motion.div 
+    className={`${styles.flexCenter} w-[140px] h-[140px] rounded-full bg-blue-gradient p-[2px] cursor-pointer`}
+    variants={fadeIn('down')} initial='hidden' whileInView='show'  
+  >
     <div className={`${styles.flexCenter} flex-col bg-primary w-full h-full rounded-full`}>
       <div className={`${styles.flexStart} flex-row`}>
         <p className='font-poppins font-medium text-[18px] leading-[23px] mr-1'>
@@ -16,7 +21,7 @@ const GetStarted = () => (
         <span className='text-gradient'>Started</span>
       </p>
     </div>
-  </div>
+  </motion.div>
 )
 
 export default GetStarted

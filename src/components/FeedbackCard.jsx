@@ -1,9 +1,11 @@
 import React from 'react'
 import { quotes } from '../assets'
+import { motion } from 'framer-motion'
+import { fadeIn } from '../constants/motion'
 
-const FeedbacnkCard = ({ content, name, title, img }) => {
+const FeedbacnkCard = ({ content, name, title, img, index }) => {
   return (
-    <div className='flex justify-between flex-col px-10 py-12 rounded-[20px] max-w-[370px] mr-0 sm:mr-5 md:mr-10 feedback-card'>
+    <motion.div variants={fadeIn('left', index*0.2)} initial='hidden' whileInView='show' className='flex justify-between flex-col px-10 py-12 rounded-[20px] max-w-[370px] mr-0 sm:mr-5 md:mr-10 feedback-card'>
       <img src={quotes} alt="image here" className='w-[42px] h-[27px] object-contain' />
       <p className='font-poppins font-normal text-[18px] leading-[32px] text-white my-10'>{content}</p>
 
@@ -15,7 +17,7 @@ const FeedbacnkCard = ({ content, name, title, img }) => {
           <p className='font-poppins font-normal text-[16px] leading-[24px] text-dimWhite my-10'>{title}</p>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
